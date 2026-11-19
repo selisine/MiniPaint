@@ -309,30 +309,30 @@ public class Controller {
 			//Get mouse coordinates
 			double mouseX = e.getX();
 			double mouseY = e.getY();
-
+			
 			//Set up the new Shape
 			Shape newShape = null;
 
 			//Make the correct kind of shape based on the mode
 			//TODO
 			if (mode.equals("line")){
-				// pane.getChildren().add(new Line(mouseX, mouseY, )); WIP
+				newShape = new Line(mouseX, mouseY, mouseX, mouseY);
 			}
 			else if (mode.equals("rectangle")){
-				// pane.getChildren().add(new Rectangle(mouseX, mouseY, )); WIP
+				newShape = new Rectangle(mouseX, mouseY, 0, 0);
 			}
 			
 			//Add Mouse Press to select the shape
 			newShape.addEventHandler(MouseEvent.MOUSE_PRESSED, e2 -> {
 				//Don't select the shape if we are drawing a new one
 				if (!drawing) {
-					//TODO
+					select(selectedNode);
 				}
 			});
 			
 			//Add Mouse Drag to move the shape
 			newShape.setOnMouseDragged(e2 -> {
-				//TODO
+				moveShape(e2);
 			});		
 			drawing = true;
 		}
@@ -401,10 +401,14 @@ public class Controller {
 			// Check event source for shape type
 			Object source = e.getSource();
 			//Get mouse coordinates
-			//TODO
+			double mouseX = e.getX();
+			double mouseY = e.getY();
 			
 			//Move the shape based on what kind of shape it is
 			//TODO 
+			if (source.equals(new Line())){
+				
+			}
 		}
 	}
 
