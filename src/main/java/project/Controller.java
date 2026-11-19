@@ -27,6 +27,8 @@ import javafx.util.Duration;
 
 /**
  * @author Thomas Bolinger - bolitj01
+ * @author Ellie Pike - pikeas01
+ * @author Isaiah Weaver - weavis01 (I assume)
  */
 
 public class Controller {
@@ -166,7 +168,17 @@ public class Controller {
 	 * to match. 
 	 */
 	void colorChange() {
-		//TODO
+		Color c = new Color(
+			redSlider.getValue(), 
+			greenSlider.getValue(), 
+			blueSlider.getValue(), 
+			100
+		);
+
+		menuCircle.setFill(c);
+		menuRectangle.setFill(c);
+		menuLine.setFill(c);
+		menuText.setFill(c);
 	}
 	
 	/**
@@ -260,16 +272,18 @@ public class Controller {
 //		if () {
 //			//TODO
 //		}
-//		//Change text on a text
-//		else if (){
-//			//DELETE or BACK_SPACE: Remove last character of Text
-//			//Any other key: Add character to Text
-//			//TODO
-//		}
-//		//DELETE or BACK_SPACE: Delete shape
-//		else if () {
-//			//TODO
-//		}
+		//Change text on a text
+		// else if (mode.equals("text")){
+		// 	//DELETE or BACK_SPACE: Remove last character of Text
+		// 	//TODO
+
+		// 	//Any other key: Add character to Text
+		// 	//TODO
+		// }
+		//DELETE or BACK_SPACE: Delete shape
+		else if () {
+			pane.getChildren().remove(selectedNode);
+		}
 //		//SPACE: Reset and play animations
 //		else if () {
 //			//TODO
@@ -290,13 +304,20 @@ public class Controller {
 		//select and animate mode do not allow drawing a shape
 		if (!(mode.equals("select") || mode.equals("animate"))) {
 			//Get mouse coordinates
-			//TODO
+			double mouseX = e.getX();
+			double mouseY = e.getY();
 
 			//Set up the new Shape
 			Shape newShape = null;
 
 			//Make the correct kind of shape based on the mode
 			//TODO
+			if (mode.equals("line")){
+				// pane.getChildren().add(new Line(mouseX, mouseY, )); WIP
+			}
+			else if (mode.equals("rectangle")){
+				// pane.getChildren().add(new Rectangle(mouseX, mouseY, )); WIP
+			}
 			
 			//Add Mouse Press to select the shape
 			newShape.addEventHandler(MouseEvent.MOUSE_PRESSED, e2 -> {
@@ -327,7 +348,8 @@ public class Controller {
 		}
 
 		//Mouse coordinates
-		//TODO
+		double mouseX = e.getX();
+		double mouseY = e.getY();
 
 		//Are we still drawing a new shape?
 		if (drawing) {
@@ -337,6 +359,14 @@ public class Controller {
 
 			//Update the shape based on what kind of shape it is
 			//TODO
+			switch (mode){
+				case "line":
+					// lastShape = new Line(mouseX, mouseY, ) WIP
+				break;
+				case "rectangle":
+					// lastShape = new Rectangle(mouseX, mouseY, ) WIP
+				break;
+			}
 		}
 	}
 
