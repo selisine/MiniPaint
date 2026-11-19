@@ -6,12 +6,14 @@ import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.ImageCursor;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -134,6 +136,7 @@ public class Controller {
 		Slider[] sliders = {redSlider, greenSlider, blueSlider};
 		for (Slider slider: sliders) {
 			//TODO
+			slider.addEventHandler(DragEvent.DRAG_DONE, );
 		}
 
 		//Initial slider colors

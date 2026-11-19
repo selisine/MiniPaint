@@ -27,6 +27,11 @@
 	style="-fx-background-color: white; -fx-border-color: grey; -fx-border-width: 3;"
 	stylesheets="@style.css" xmlns="http://javafx.com/javafx/18"
 	xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.Controller">
+	<center>
+		<Pane fx:id="pane" onMouseDragged="#resizeShape"
+			onMouseReleased="#doneDrawing" prefHeight="200.0" prefWidth="200.0"
+			BorderPane.alignment="CENTER" />
+	</center>
 	<top>
 		<HBox prefHeight="140.0" prefWidth="600.0"
 			style="-fx-border-color: grey; -fx-border-width: 0 0 3 0;"
@@ -293,9 +298,5 @@
 			</children>
 		</HBox>
 	</top>
-	<center>
-		<Pane fx:id="pane" onMouseDragged="#resizeShape"
-			onMouseReleased="#doneDrawing" prefHeight="200.0" prefWidth="200.0"
-			BorderPane.alignment="CENTER" />
-	</center>
+	
 </BorderPane>
